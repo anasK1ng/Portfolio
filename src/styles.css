@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+ul {
+  list-style: none;
+}
+.App {
+  text-align: center;
+  position: relative;
+}
+body {
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f1faee;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.section {
+  height: 100vh;
+  padding: 8rem 0rem 0rem;
+}
+.btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
