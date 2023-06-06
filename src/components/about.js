@@ -1,15 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
-import {spliteDateToJson} from "../services/formatDate.js"
+import { spliteDateToJson } from "../services/formatDate.js";
 import "./about.css";
 import Category from "./category";
 // import CategoryItem from "./categoryItem.js";
 import { User } from "./user";
 function About() {
   // const [keyState, setKeyState] = useState(null);
-  const [checkedCategory,setCheckedCategory] = useState(()=>{
-    return document.querySelectorAll('.about__nav__item.checked')
+  const [checkedCategory, setCheckedCategory] = useState(() => {
+    return document.querySelectorAll(".about__nav__item.checked");
   });
-  
+
+  const [hideenCategory, setHiddenCategory] = useState(() => {});
   const [aboutNavItemActive, setAboutNavItemActive] = useState(2);
   const [categoryHiddenIndex, setCategoryHiddenIndex] = useState([0, 1]);
   const aboutNavItemChecked = useRef([]);
@@ -18,12 +19,9 @@ function About() {
     const checkedElements = document.querySelectorAll(
       ".about__nav__item.checked"
     );
-    console.log(aboutNavItem);
     aboutNavItemChecked.current = [...checkedElements];
   }, []);
-  useEffect(()=>{
-    
-  },)
+  useEffect(() => {});
 
   // const navAboutExperience = useRef();
   // const handleKeyState = (obj) => {
@@ -35,14 +33,14 @@ function About() {
       element.classList.remove("checked")
     );
   };
-  const switchCheck = (key) =>{
+  const switchCheck = (key) => {
     setCheckedCategory(key);
-  }
+  };
   const switchNav = (e) => {
     removeCheckedClass(e);
     e.target.classList.add("checked");
   };
-  
+
   const calculateAge = () => {
     var { day, month, year } = spliteDateToJson(User.dateOfBirth);
     var birthdate = new Date(year, month, day);
@@ -74,7 +72,9 @@ function About() {
                 <span
                   key={key + "" + index}
                   ref={(element) => (aboutNavItem.current[index] = element)}
-                  onClick={ ()=>{switchCheck(key)}}
+                  onClick={() => {
+                    switchCheck(key);
+                  }}
                   className={`about__nav__item btn ${
                     index === aboutNavItemActive ? "checked" : ""
                   }`}
