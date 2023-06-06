@@ -1,19 +1,15 @@
 import React from "react";
 import "./about.css";
+import { spliteDate } from "../services/formatDate.js";
 function CategoryExperienceItem({
   category,
   categoryKey,
   index,
   CategoryHiddenIndexState
 }) {
-  const spliteDate = (date) => {
-    const year = date.split("/")[2];
-    return year;
-  };
   return (
     <>
-      {console.log("ex", category)}
-      <li key={index} className="about__experience__item">
+          <li key={index} className="about__experience__item">
         <span className="about__experience__date">
           {spliteDate(category.startDate)} - {spliteDate(category.finishDate)}
         </span>

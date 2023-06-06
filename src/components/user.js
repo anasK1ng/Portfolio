@@ -35,8 +35,8 @@ export let User = {
       icon: "fa-solid fa-briefcase",
       data: [
         {
-          companyName: "anas",
-          speciality: "web developer",
+          companyName: "E-market Solutions ",
+          speciality: "Mailer Agent",
           startDate: "10/10/2000",
           finishDate: "10/10/2000"
         },
@@ -55,24 +55,24 @@ export let User = {
           establishment: "High School Degree",
           formation: "",
           startDate: "10/09/2017",
-          finshdate: "08/06/2018"
+          finshDate: "08/06/2018"
         },
         {
-          establishment: "",
-          formation: "",
+          establishment: "ISTA",
+          formation: "Development Informatique",
           startDate: "15/10/2018",
-          finshdate: "10/07/2019"
+          finshDate: "10/07/2019"
         },
         {
-          establishment: "",
+          establishment: "EST",
           formation: "",
           startDate: "03/09/2019",
-          finshdate: "18/06/2021"
+          finshDate: "18/06/2021"
         },
         {
           formation: "",
           startDate: "15/10/2022",
-          finshdate: "now"
+          finshDate: "now"
         }
       ]
     },

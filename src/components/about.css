@@ -95,30 +95,32 @@
   border-radius: 10px;
 }
 .about__category__name,
-.about__experience__date {
+.about__experience__date,
+.about__education__date {
   text-transform: capitalize;
   display: inline-block;
-  padding-bottom: 1rem;
-  font-size: 1.2rem;
+  padding-bottom: 0.3rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #e63946;
   /* padding: 0.5rem 1rem; */
   /* background-color: #457b9d; */
-  margin-bottom: 0.1rem;
   border-radius: 8px;
 }
 .about__category__language,
 .about__category__experience,
-.about__category__educcation {
+.about__category__education {
   z-index: 10;
   display: flex;
   gap: 0.5rem;
 }
-.about__experience__item {
+.about__experience__item,
+.about__education__item {
   display: flex;
   flex-direction: column;
+  padding-bottom: 0.8rem;
 }
-.about__experience__company {
+.about__experience__company,.about__experience__name {
   color: #1d3557;
 }
 

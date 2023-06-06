@@ -1,21 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
+import {spliteDateToJson} from "../services/formatDate.js"
 import "./about.css";
 import Category from "./category";
 // import CategoryItem from "./categoryItem.js";
 import { User } from "./user";
 function About() {
   // const [keyState, setKeyState] = useState(null);
+  const [checkedCategory,setCheckedCategory] = useState(()=>{
+    return document.querySelectorAll('.about__nav__item.checked')
+  });
+  
   const [aboutNavItemActive, setAboutNavItemActive] = useState(2);
   const [categoryHiddenIndex, setCategoryHiddenIndex] = useState([0, 1]);
   const aboutNavItemChecked = useRef([]);
   const aboutNavItem = useRef([]);
   useEffect(() => {
     const checkedElements = document.querySelectorAll(
-      " .about__nav__item.checked"
+      ".about__nav__item.checked"
     );
     console.log(aboutNavItem);
     aboutNavItemChecked.current = [...checkedElements];
   }, []);
+  useEffect(()=>{
+    
+  },)
 
   // const navAboutExperience = useRef();
   // const handleKeyState = (obj) => {
@@ -27,20 +35,16 @@ function About() {
       element.classList.remove("checked")
     );
   };
+  const switchCheck = (key) =>{
+    setCheckedCategory(key);
+  }
   const switchNav = (e) => {
     removeCheckedClass(e);
     e.target.classList.add("checked");
   };
-  const spliteDate = (date) => {
-    var dateParts = date.split("/");
-    var day = dateParts[0];
-    var month = dateParts[1];
-    var year = dateParts[2];
-
-    return { day, month, year };
-  };
+  
   const calculateAge = () => {
-    var { day, month, year } = spliteDate(User.dateOfBirth);
+    var { day, month, year } = spliteDateToJson(User.dateOfBirth);
     var birthdate = new Date(year, month, day);
     var today = new Date();
     var difference = today.getTime() - birthdate.getTime();
@@ -70,7 +74,7 @@ function About() {
                 <span
                   key={key + "" + index}
                   ref={(element) => (aboutNavItem.current[index] = element)}
-                  onClick={switchNav}
+                  onClick={ ()=>{switchCheck(key)}}
                   className={`about__nav__item btn ${
                     index === aboutNavItemActive ? "checked" : ""
                   }`}
@@ -92,6 +96,7 @@ function About() {
                       categoryKey={categoryKey}
                       data={Array.from(User.personal[categoryKey].data)}
                       categoryHiddenIndexState={categoryHiddenIndex}
+                      checkedCategory={checkedCategory}
                     />
                   </>
                 );

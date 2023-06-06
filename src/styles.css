@@ -31,3 +31,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+.hide{
+display:none;
+}
+.display{
+  display:flex;
+}
